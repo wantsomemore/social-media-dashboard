@@ -1,18 +1,11 @@
 import * as Yup from 'yup';
 
-export const matchEightCharacters = new RegExp(/^(.{8,}$)/);
-export const nonAlphabetCharsRegex = new RegExp(/[^a-zA-Z]/g);
-
-export const allowNumbersOnlyRegExp = /(\D)/g;
-
 export const allowNonCyrillicSymbols =
   /^[ A-Za-z0-9~!@#№$%^&`'₴*()_\-+={}[\]|\\/:;“"’<,>.?]*$/;
 export const preventRepeatedCharacters =
   /^(?!-)(?!.*[!@#$%^&*()\-_+={}[\]|\\;:'",<.>\/?]{2}).+$/i;
 export const emailRegex =
   /^[a-zA-Z0-9]+([-.+][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*([.][a-zA-Z]{2,})+$/;
-
-export const onlyNumbersRegExp = /[^0-9]/g;
 
 export const emailValidation = Yup.string()
   .email('Incorrect email')

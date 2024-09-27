@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/hooks/useStore';
 import UsersApi from '@/services/Users/UsersApi';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const useDeleteUser = () => {
   const [isDeleteUserModalOpen, setIsDeleteUserModalOpen] = useState(false);
@@ -18,8 +18,8 @@ const useDeleteUser = () => {
   const deleteUser = useCallback(() => {
     dispatch(UsersApi.deleteUser(deletedUserId))
       .unwrap()
-      .then(() => closeDeleteUserModal);
-  }, []);
+      .then(() => closeDeleteUserModal());
+  }, [dispatch, deletedUserId]);
 
   return {
     isDeleteUserModalOpen,

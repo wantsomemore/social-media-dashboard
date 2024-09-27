@@ -1,9 +1,8 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore';
-import { IAddUserFormPayload } from '@/pages/Dashboard/types';
 import UsersApi from '@/services/Users/UsersApi';
 import { userSchema } from '@/utils/validation';
 import { useFormik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IEditUserFormPayload } from '../types';
 
@@ -18,9 +17,12 @@ const useUserProfile = () => {
     setTabValue(newValue);
   };
 
-  const editUser = (values: IEditUserFormPayload) => {
-    id && dispatch(UsersApi.editUser({ data: values, id }));
-  };
+  const editUser = useCallback(
+    (values: IEditUserFormPayload) => {
+      id && dispatch(UsersApi.editUser({ data: values, id }));
+    },
+    [dispatch]
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -40,6 +42,7 @@ const useUserProfile = () => {
   useEffect(() => {
     id && dispatch(UsersApi.getUser(id));
   }, []);
+
   return { activeUser, handleTabChange, tabValue, formik };
 };
 

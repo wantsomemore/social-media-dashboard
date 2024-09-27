@@ -1,13 +1,6 @@
-import React, { memo } from 'react';
-import { Modal, Button, TextField, ModalProps } from '@mui/material';
-import { Formik, Form, Field, FormikProvider, useFormikContext } from 'formik';
-import { userSchema } from '@/utils/validation';
-import {
-  IAddUserFormPayload,
-  IAddUserModalProps,
-  IDeleteUserModalProps,
-  IFormikField,
-} from '../types';
+import { memo } from 'react';
+import { Modal, Button } from '@mui/material';
+import { IDeleteUserModalProps } from '../types';
 
 const DeleteUserModal = ({
   open,

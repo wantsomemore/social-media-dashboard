@@ -1,7 +1,6 @@
-import React, { memo } from 'react';
-import { Modal, Button, TextField, ModalProps } from '@mui/material';
-import { Formik, Form, Field, FormikProvider, useFormikContext } from 'formik';
-import { userSchema } from '@/utils/validation';
+import { memo } from 'react';
+import { Modal, Button, TextField } from '@mui/material';
+import { Form, Field, useFormikContext } from 'formik';
 import {
   IAddUserFormPayload,
   IAddUserModalProps,

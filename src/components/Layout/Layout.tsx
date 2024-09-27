@@ -8,7 +8,6 @@ import { Outlet } from 'react-router';
 const Layout = () => {
   const store = useAppSelector((state) => state);
   const isLoading = getLoading(store);
-  console.log('load', isLoading);
   return (
     <div
       className={`${isLoading ? `bg-#fff` : 'bg-#323232'} w-screen h-screen`}

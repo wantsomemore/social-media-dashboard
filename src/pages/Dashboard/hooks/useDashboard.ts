@@ -2,13 +2,15 @@ import { useAppDispatch, useAppSelector } from '@/hooks/useStore';
 import UsersApi from '@/services/Users/UsersApi';
 import { userSchema } from '@/utils/validation';
 import { useFormik } from 'formik';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IAddUserFormPayload } from '../types';
 
 const useDashboard = () => {
   const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const { users } = useAppSelector((state) => state.usersReducer);
 
   const openAddUserModal = () => setIsAddUserModalOpen(true);
@@ -18,15 +20,16 @@ const useDashboard = () => {
     dispatch(UsersApi.getUsers());
   }, []);
 
-  const navigate = useNavigate();
-
   const handleRowClick = (id: string) => () => {
     navigate(`/users/${id}`, { state: { id } });
   };
 
-  const addUser = useCallback((values: IAddUserFormPayload) => {
-    dispatch(UsersApi.addUser(values));
-  }, []);
+  const addUser = useCallback(
+    (values: IAddUserFormPayload) => {
+      dispatch(UsersApi.addUser(values));
+    },
+    [dispatch]
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -39,7 +42,7 @@ const useDashboard = () => {
     onSubmit: async (values: IAddUserFormPayload, { resetForm }) => {
       addUser(values);
       resetForm();
-      closeAddUserModal;
+      closeAddUserModal();
     },
   });
 

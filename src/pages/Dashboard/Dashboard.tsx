@@ -21,6 +21,7 @@ const Dashboard = () => {
     closeDeleteUserModal,
     deleteUser,
   } = useDeleteUser();
+
   return (
     <div className="container-fluid px-5 py-4 min-vh-100 bg-light">
       <div className="mb-5 text-center">

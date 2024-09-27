@@ -13,7 +13,6 @@ import { IEditUserFormPayload } from '../types';
 
 const EditUserForm = () => {
   const formik = useFormikContext<IEditUserFormPayload>();
-  console.log(formik);
   return (
     <div className="mx-auto  mt-4 lg:p-5 p-3 lg:min-w-2xl lg:w-2/3 sm:w-full">
       <h2 className="text-2xl mb-4 text-center">Edit User Information</h2>
