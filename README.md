@@ -7,6 +7,10 @@ Front end React app for Social media
 - Installation
 - Creating .env file
 - Run App
+- Folder Structure
+- Technical Decisions
+- Component Structure
+- External packages
 - Links
 - Author
 
@@ -47,6 +51,10 @@ You need to have `.env` file in root folder. You can copy it from `.example.env`
 ├── .env # Environment variables
 ├── .example.env # Sample .env file for development
 ├── public # Public assets like images
+|** .prettierc.json, eslintrc.json # Handle file formatting settings
+|** .gitignore # Handle files that git should ignore and not push to the repo
+|** tailwing.config.ts, postcss.config.ts # Configuration for Tailwind library
+|** tsconfig.json # Rules configuration for typescript
 └── README.md # Project documentation
 
 ## Technical Decisions
@@ -65,15 +73,15 @@ The project uses TypeScript to ensure type safety and better developer experienc
 
 ## External Packages
 
-# @mui/material: Material UI is used for the design system, which provides pre-built components (e.g., Button, Table, IconButton) and consistent styling across the app.
+@mui/material: Material UI is used for the design system, which provides pre-built components (e.g., Button, Table, IconButton) and consistent styling across the app.
 
-# formik: Formik is used to manage form state and validation, especially in the user creation and deletion modals.
+formik: Formik is used to manage form state and validation, especially in the user creation and deletion modals.
 
-# date-fns: Used for formatting dates in the dashboard, making it easier to handle date-related logic like formatting the user creation date.
+date-fns: Used for formatting dates in the dashboard, making it easier to handle date-related logic like formatting the user creation date.
 
-# @mui/icons-material: This package provides material icons like the delete icon, enhancing the UI with intuitive iconography.
+@mui/icons-material: This package provides material icons like the delete icon, enhancing the UI with intuitive iconography.
 
-# @redux-toolkit and react-redux is used for app state management
+@redux-toolkit and react-redux is used for app state management
 
 ## Links
 
