@@ -35,6 +35,46 @@ You need to have `.env` file in root folder. You can copy it from `.example.env`
 
 `npm run dev` after running command in terminal, open http://localhost:5173/ in browser
 
+## Folder Structure
+
+├── src
+│ ├── components # Reusable components such as Layout
+│ ├── hooks # Custom hooks for managing global logic
+│ ├── interfaces # TypeScript interfaces and types for models (e.g., IUser)
+│ ├── pages # Page components like the Dashboard. Each pages/[component] have nested folders(components, hooks, etc.)
+│ ├── constants # Constants such as date formats or configuration values
+│
+├── .env # Environment variables
+├── .example.env # Sample .env file for development
+├── public # Public assets like images
+└── README.md # Project documentation
+
+## Technical Decisions
+
+Vite as Build Tool
+I chose Vite as the build tool for its fast startup times and built-in support for modern JavaScript and React. Vite's hot module replacement (HMR) is more performant compared to other build tools like Webpack, and its zero-config setup is great for React development.
+
+## Component Structure
+
+The app is structured with separation of concerns in mind:
+
+Hooks manage business logic and side effects, making it easier to reuse and test logic independently from components.
+Components are responsible for rendering the UI, with complex UI elements abstracted into their own files for better maintainability.
+
+The project uses TypeScript to ensure type safety and better developer experience with autocompletion, as well as preventing runtime errors by catching issues at compile time.
+
+## External Packages
+
+# @mui/material: Material UI is used for the design system, which provides pre-built components (e.g., Button, Table, IconButton) and consistent styling across the app.
+
+# formik: Formik is used to manage form state and validation, especially in the user creation and deletion modals.
+
+# date-fns: Used for formatting dates in the dashboard, making it easier to handle date-related logic like formatting the user creation date.
+
+# @mui/icons-material: This package provides material icons like the delete icon, enhancing the UI with intuitive iconography.
+
+# @redux-toolkit and react-redux is used for app state management
+
 ## Links
 
 - [Repo](https://github.com/wantsomemore/social-media-dashboard)
